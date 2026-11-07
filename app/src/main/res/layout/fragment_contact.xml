@@ -45,6 +45,7 @@
 
         <!-- Company info-->
         <TextView
+            android:id="@+id/aboutText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -52,6 +53,14 @@
             android:text="@string/company_intro"
             android:textColor="@color/colorTextPrimary"
             android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/aboutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="About Sienna" />
 
         <!--  Divider line. -->
         <View

@@ -11,6 +11,10 @@
         <item android:id="@+id/nav_contact"
             android:icon="@drawable/ic_mail"
             android:title="@string/nav_contact"/>
+        <item android:id="@+id/nav_pets"
+            android:icon="@drawable/ic_pets"
+            android:title="@string/nav_pets"/>
+
     </group>
 
 </menu>

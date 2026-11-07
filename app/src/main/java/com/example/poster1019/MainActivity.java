@@ -3,6 +3,7 @@ package com.example.poster1019;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +27,8 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_PAGE_MAIN = "page_main";
     private static final String TAG_PAGE_FAVORITES = "page_favorites";
     private static final String TAG_PAGE_CONTACT = "page_contact";
+    //add pets page tag
+    private static final String TAG_PAGE_PETS = "page_pets";
 
     //drawer the side menu inside it, and the bottom bar.
     private DrawerLayout drawerLayout;
@@ -111,11 +116,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        //add fragment containers for each page
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragmentContainer, new PostersFragment(), TAG_PAGE_MAIN)
                     .add(R.id.fragmentContainer, new FavoritesFragment(), TAG_PAGE_FAVORITES)
                     .add(R.id.fragmentContainer, new ContactFragment(), TAG_PAGE_CONTACT)
+                    .add(R.id.fragmentContainer, new PetsFragment(), TAG_PAGE_PETS)
                     .commitNow();
         } else {
             currentPageId = savedInstanceState.getInt(KEY_CURRENT_PAGE, R.id.nav_main);
@@ -141,15 +148,17 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt(KEY_CURRENT_PAGE, currentPageId);
     }
 
+    //indivdually show each page fragment when clicked, allowing for each page to function without issue from others
+    //added the pets page and accordingly adjusted code
     private void showPage(int pageId) {
         currentPageId = pageId;
 
-        //Show this page's Fragment and hide the other two. show/hide (instead of
+        //Show this page's Fragment and hide the other three. show/hide (instead of
         // replace) keeps each page alive, with its scroll position and selections.
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         String visibleTag = tagForPage(pageId);
-        for (String tag : new String[]{TAG_PAGE_MAIN, TAG_PAGE_FAVORITES, TAG_PAGE_CONTACT}) {
+        for (String tag : new String[]{TAG_PAGE_MAIN, TAG_PAGE_FAVORITES, TAG_PAGE_CONTACT, TAG_PAGE_PETS}) {
             Fragment page = fragmentManager.findFragmentByTag(tag);
             if (page == null) {
                 continue;
@@ -173,25 +182,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     //Toolbar title for each page.
     private int titleForPage(int pageId) {
         if (pageId == R.id.nav_favorites) {
             return R.string.title_favorites;
         } else if (pageId == R.id.nav_contact) {
             return R.string.title_contact;
+        } else if (pageId == R.id.nav_pets) {
+            return R.string.title_pets;
+        } return R.string.posters;
         }
-        return R.string.posters;
-    }
 
-    //Which Fragment tag belongs to a page.
-    private String tagForPage(int pageId) {
-        if (pageId == R.id.nav_favorites) {
-            return TAG_PAGE_FAVORITES;
-        } else if (pageId == R.id.nav_contact) {
-            return TAG_PAGE_CONTACT;
+        //Which Fragment tag belongs to a page.
+        private String tagForPage(int pageId){
+            if (pageId == R.id.nav_favorites) {
+                return TAG_PAGE_FAVORITES;
+            } else if (pageId == R.id.nav_contact) {
+                return TAG_PAGE_CONTACT;
+            } else if (pageId == R.id.nav_pets) {
+                return TAG_PAGE_PETS;
+            }
+            return TAG_PAGE_MAIN;
         }
-        return TAG_PAGE_MAIN;
+
     }
-
-
-}

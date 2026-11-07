@@ -120,44 +120,55 @@ public class PosterRepository {
         }
     }
 
+    //set up movie posters and descriptions as a array of Posters
+    //with 5 new movies to be implemented into poster fragment
     private static List<Posters> createPosters() {
         List<Posters> posters = new ArrayList<>();
 
-        Posters the100 = new Posters();
-        the100.id = "vietnam";
-        the100.image = R.drawable.poster3;
-        the100.name = "Vietnam Movie";
-        the100.rating = 5f;
-        the100.createdBy = "Cuong Ngo";
-        the100.story = "This is an Vietnam Movie with a young lady";
-        posters.add(the100);
+        Posters godzilla = new Posters();
+        godzilla.id = "godzilla";
+        godzilla.image = R.drawable.poster1;
+        godzilla.name = "Godzilla Minus Zero";
+        godzilla.rating = 4f;
+        godzilla.createdBy = "Takashi Yamazaki";
+        godzilla.story = "2026 Japanese monster film.";
+        posters.add(godzilla);
 
-        Posters chineseMovie = new Posters();
-        chineseMovie.id = "chinese";
-        chineseMovie.image = R.drawable.poster4;
-        chineseMovie.name = "Chinese Movie";
-        chineseMovie.rating = 4f;
-        chineseMovie.createdBy = "Zhang San";
-        chineseMovie.story = "This is an Chinese Movie with a young lady.";
-        posters.add(chineseMovie);
+        Posters wildwood = new Posters();
+        wildwood.id = "wildwood";
+        wildwood.image = R.drawable.poster2;
+        wildwood.name = "Wildwood";
+        wildwood.rating = 5f;
+        wildwood.createdBy = "Travis Knight";
+        wildwood.story = "2026 American stop-motion animated dark fantasy film.";
+        posters.add(wildwood);
 
-        Posters japanMovie = new Posters();
-        japanMovie.id = "japanese";
-        japanMovie.image = R.drawable.poster1;
-        japanMovie.name = "Japanese Movie";
-        japanMovie.rating = 3f;
-        japanMovie.createdBy = "Juzo Itami";
-        japanMovie.story = "This is an Japanese Movie.";
-        posters.add(japanMovie);
+        Posters cat = new Posters();
+        cat.id = "cat";
+        cat.image = R.drawable.poster3;
+        cat.name = "The Cat in the Hat";
+        cat.rating = 3f;
+        cat.createdBy = "Erica Rivinoja, Alessandro Carloni";
+        cat.story = "2026 animated theatrical feature film.";
+        posters.add(cat);
 
-        Posters americanMovie = new Posters();
-        americanMovie.id = "american";
-        americanMovie.image = R.drawable.poster2;
-        americanMovie.name = "American Movie";
-        americanMovie.rating = 5f;
-        americanMovie.createdBy = "Tim Burton";
-        americanMovie.story = "This is an American Movie.";
-        posters.add(americanMovie);
+        Posters drummer = new Posters();
+        drummer.id = "drummer";
+        drummer.image = R.drawable.poster4;
+        drummer.name = "Drummer Boy";
+        drummer.rating = 4f;
+        drummer.createdBy = "Ben Smallbone, Joel David Smallbone";
+        drummer.story = "2026 American historical musical drama film.";
+        posters.add(drummer);
+
+        Posters barbie = new Posters();
+        barbie.id = "american";
+        barbie.image = R.drawable.poster5;
+        barbie.name = "Barbie as the Princess and the Pauper";
+        barbie.rating = 5f;
+        barbie.createdBy = "William Lau";
+        barbie.story = "2004 computer-animated musical film.";
+        posters.add(barbie);
 
         return posters;
 
